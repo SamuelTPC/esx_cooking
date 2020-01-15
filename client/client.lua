@@ -172,7 +172,7 @@ RegisterNUICallback("buybreadb", function()
 	ESX.TriggerServerCallback("checkMoney", function(cb)
 		if cb then
 			ESX.ShowNotification("~g~You have ordered ~y~1x ~g~burger bread~s~." .. " ~y~Please wait for your order~s~.")
-			Wait(10000)
+			Wait(60000)
 			ESX.ShowNotification("~g~Your order was been delivered on your door.~s~")
             table.insert(orders, "breadb")
 		else
@@ -185,7 +185,7 @@ RegisterNUICallback("buycheese", function()
 	ESX.TriggerServerCallback("checkMoney1", function(cb)
 		if cb then
 			ESX.ShowNotification("~g~You have ordered ~y~1x ~g~cheese~s~." .. " ~y~Please wait for your order~s~.")
-			Wait(10000)
+			Wait(60000)
 			ESX.ShowNotification("~g~Your order was been delivered on your door.~s~")
             table.insert(orders, "cheese")
 		else
@@ -198,7 +198,7 @@ RegisterNUICallback("buymeat", function()
 	ESX.TriggerServerCallback("checkMoney2", function(cb)
 		if cb then
 			ESX.ShowNotification("~g~You have ordered ~y~1x ~g~meat~s~" .. " ~y~Please wait for your order~s~.")
-			Wait(10000)
+			Wait(60000)
 			ESX.ShowNotification("~g~Your order was been delivered on your door.~s~")
             table.insert(orders, "meat")
 		else
@@ -212,7 +212,7 @@ RegisterNUICallback("buybreadh", function()
 	ESX.TriggerServerCallback("checkMoney", function(cb)
 		if cb then
 			ESX.ShowNotification("~g~You have ordered ~y~1x ~g~hotdog bread~s~." .. " ~y~Please wait for your order~s~.")
-			Wait(10000)
+			Wait(60000)
 			ESX.ShowNotification("~g~Your order was been delivered on your door.~s~")
             table.insert(orders, "breadh")
 		else
@@ -225,7 +225,7 @@ RegisterNUICallback("buysausage", function()
 	ESX.TriggerServerCallback("checkMoney3", function(cb)
 		if cb then
 			ESX.ShowNotification("~g~You have ordered ~y~1x ~g~sausage~s~." .. " ~y~Please wait for your order~s~.")
-			Wait(10000)
+			Wait(60000)
 			ESX.ShowNotification("~g~Your order was been delivered on your door.~s~")
             table.insert(orders, "sausage")
 		else
@@ -239,7 +239,7 @@ RegisterNUICallback("buybreads", function()
 	ESX.TriggerServerCallback("checkMoney", function(cb)
 		if cb then
 			ESX.ShowNotification("~g~You have ordered ~y~1x ~g~sandwich bread~s~." .. " ~y~Please wait for your order~s~.")
-			Wait(10000)
+			Wait(60000)
 			ESX.ShowNotification("~g~Your order was been delivered on your door.~s~")
             table.insert(orders, "breads")
 		else
@@ -252,7 +252,7 @@ RegisterNUICallback("buycheese1", function()
 	ESX.TriggerServerCallback("checkMoney1", function(cb)
 		if cb then
 			ESX.ShowNotification("~g~You have ordered ~y~1x ~g~cheese~s~." .. " ~y~Please wait for your order~s~.")
-			Wait(10000)
+			Wait(60000)
 			ESX.ShowNotification("~g~Your order was been delivered on your door.~s~")
             table.insert(orders, "cheese")
 		else
@@ -265,7 +265,7 @@ RegisterNUICallback("buyham", function()
 	ESX.TriggerServerCallback("checkMoney1", function(cb)
 		if cb then
 			ESX.ShowNotification("~g~You have ordered ~y~1x ~g~ham~s~" .. " ~y~Please wait for your order~s~.")
-			Wait(10000)
+			Wait(60000)
 			ESX.ShowNotification("~g~Your order was been delivered on your door.~s~")
             table.insert(orders, "ham")
 		else
@@ -282,7 +282,7 @@ RegisterNUICallback("makeburger", function()
 		if cb1 then
 			ESX.ShowNotification("~y~You're preparing your burger~s~")
 			TaskStartScenarioInPlace(PlayerPedId(), "PROP_HUMAN_BBQ", 0, false)
-			Wait(10000)
+			Wait(2*60000)
 			ClearPedTasksImmediately(PlayerPedId())
 			TriggerServerEvent("esx_cooking:giveItem1")
 		else
@@ -297,7 +297,7 @@ RegisterNUICallback("makesandwich", function()
 		if cb1 then
 			ESX.ShowNotification("~y~You're preparing your sandwich~s~")
 			TaskStartScenarioInPlace(PlayerPedId(), "PROP_HUMAN_BBQ", 0, false)
-			Wait(10000)
+			Wait(2*60000)
 			ClearPedTasksImmediately(PlayerPedId())
 			TriggerServerEvent("esx_cooking:giveItem2")
 		else
@@ -312,7 +312,7 @@ RegisterNUICallback("makehotdog", function()
 		if cb1 then
 			ESX.ShowNotification("~y~You're preparing your hot dog~s~")
 			TaskStartScenarioInPlace(PlayerPedId(), "PROP_HUMAN_BBQ", 0, false)
-			Wait(10000)
+			Wait(2*60000)
 			ClearPedTasksImmediately(PlayerPedId())
 			TriggerServerEvent("esx_cooking:giveitem3")
 		else

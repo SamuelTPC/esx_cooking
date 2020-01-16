@@ -101,7 +101,7 @@ AddEventHandler("esx_cooking:giveItem1", function()
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
 
-    xPlayer.addInventoryItem("Burger", 1)
+    xPlayer.addInventoryItem("burger", 1)
 end)
 
 RegisterServerEvent("esx_cooking:giveItem2")
@@ -109,7 +109,7 @@ AddEventHandler("esx_cooking:giveItem2", function()
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
 
-    xPlayer.addInventoryItem("Sandwich", 1)
+    xPlayer.addInventoryItem("sandwich", 1)
 end)
 
 RegisterServerEvent("esx_cooking:giveitem3")
@@ -117,7 +117,7 @@ AddEventHandler("esx_cooking:giveitem3", function()
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
 
-    xPlayer.addInventoryItem("Hot Dog", 1)
+    xPlayer.addInventoryItem("hotdog", 1)
 end)
 
 --WildOatsDrive

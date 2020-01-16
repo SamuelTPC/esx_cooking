@@ -18,14 +18,42 @@ Citizen.CreateThread(function()
 end)
 
 hasProperty = nil
+hasProperty1 = nil
+hasProperty2 = nil
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(10)
         if hasProperty == nil and ESX ~= nil then
-            ESX.TriggerServerCallback("checkProperty", function(cb) hasProperty = cb end)
+			ESX.TriggerServerCallback("checkProperty", function(cb) hasProperty = cb end)
+		end
+		
+		if hasProperty1 == nil and ESX ~= nil then
+			ESX.TriggerServerCallback("checkProperty1", function(cb) hasProperty1 = cb end)
+		end
+		
+		if hasProperty2 == nil and ESX ~= nil then
+			ESX.TriggerServerCallback("checkProperty2", function(cb) hasProperty2 = cb end)
         end
     end
 end)
+
+--[[Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(10)
+        if hasProperty1 == nil and ESX ~= nil then
+			ESX.TriggerServerCallback("checkProperty1", function(cb) hasProperty1 = cb end)
+        end
+    end
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(10)
+        if hasProperty2 == nil and ESX ~= nil then
+			ESX.TriggerServerCallback("checkProperty2", function(cb) hasProperty2 = cb end)
+        end
+    end
+end)]]
 
 local orders = {}
 
@@ -56,42 +84,42 @@ Citizen.CreateThread(function()
 		end
 
 		--Property 2
-		if GetDistanceBetweenCoords(coords, Config.Zones.FoodOrder1.x, Config.Zones.FoodOrder1.y, Config.Zones.FoodOrder1.z, true) < Config.DrawDistance and hasProperty then
+		if GetDistanceBetweenCoords(coords, Config.Zones.FoodOrder1.x, Config.Zones.FoodOrder1.y, Config.Zones.FoodOrder1.z, true) < Config.DrawDistance and hasProperty1 then
             DrawText3Ds(Config.Zones.FoodOrder1.x, Config.Zones.FoodOrder1.y, Config.Zones.FoodOrder1.z + 0., "Press [~g~E~s~] to open the order menu", 0.4)
 		end
 		       
-		if GetDistanceBetweenCoords(coords, Config.Zones.FoodOrder1.x, Config.Zones.FoodOrder1.y, Config.Zones.FoodOrder1.z, true) < 1 and hasProperty then
+		if GetDistanceBetweenCoords(coords, Config.Zones.FoodOrder1.x, Config.Zones.FoodOrder1.y, Config.Zones.FoodOrder1.z, true) < 1 and hasProperty1 then
 			if IsControlJustReleased(0, Keys['E']) then
 				OpenMenu(true)
 			end
 		end
 
-		if GetDistanceBetweenCoords(coords, Config.Zones.KitchenMenu1.x, Config.Zones.KitchenMenu1.y, Config.Zones.KitchenMenu1.z, true) < Config.DrawDistance and hasProperty then
+		if GetDistanceBetweenCoords(coords, Config.Zones.KitchenMenu1.x, Config.Zones.KitchenMenu1.y, Config.Zones.KitchenMenu1.z, true) < Config.DrawDistance and hasProperty1 then
             DrawText3Ds(Config.Zones.KitchenMenu1.x, Config.Zones.KitchenMenu1.y, Config.Zones.KitchenMenu1.z + 0., "Press [~g~E~s~] to open the kitchen menu", 0.4)
 		end
 
-		if GetDistanceBetweenCoords(coords, Config.Zones.KitchenMenu1.x, Config.Zones.KitchenMenu1.y, Config.Zones.KitchenMenu1.z, true) < 1 and hasProperty then
+		if GetDistanceBetweenCoords(coords, Config.Zones.KitchenMenu1.x, Config.Zones.KitchenMenu1.y, Config.Zones.KitchenMenu1.z, true) < 1 and hasProperty1 then
 			if IsControlJustReleased(0, Keys['E']) then
 				OpenMenu2(true)
 			end
 		end
 
 		--Property 4
-		if GetDistanceBetweenCoords(coords, Config.Zones.FoodOrder2.x, Config.Zones.FoodOrder2.y, Config.Zones.FoodOrder2.z, true) < Config.DrawDistance and hasProperty then
+		if GetDistanceBetweenCoords(coords, Config.Zones.FoodOrder2.x, Config.Zones.FoodOrder2.y, Config.Zones.FoodOrder2.z, true) < Config.DrawDistance and hasProperty2 then
             DrawText3Ds(Config.Zones.FoodOrder2.x, Config.Zones.FoodOrder2.y, Config.Zones.FoodOrder2.z + 0., "Press [~g~E~s~] to open the order menu", 0.4)
 		end
 		       
-		if GetDistanceBetweenCoords(coords, Config.Zones.FoodOrder2.x, Config.Zones.FoodOrder2.y, Config.Zones.FoodOrder2.z, true) < 1 and hasProperty then
+		if GetDistanceBetweenCoords(coords, Config.Zones.FoodOrder2.x, Config.Zones.FoodOrder2.y, Config.Zones.FoodOrder2.z, true) < 1 and hasProperty2 then
 			if IsControlJustReleased(0, Keys['E']) then
 				OpenMenu(true)
 			end
 		end
 
-		if GetDistanceBetweenCoords(coords, Config.Zones.KitchenMenu2.x, Config.Zones.KitchenMenu2.y, Config.Zones.KitchenMenu2.z, true) < Config.DrawDistance and hasProperty then
+		if GetDistanceBetweenCoords(coords, Config.Zones.KitchenMenu2.x, Config.Zones.KitchenMenu2.y, Config.Zones.KitchenMenu2.z, true) < Config.DrawDistance and hasProperty2 then
             DrawText3Ds(Config.Zones.KitchenMenu2.x, Config.Zones.KitchenMenu2.y, Config.Zones.KitchenMenu2.z + 0., "Press [~g~E~s~] to open the kitchen menu", 0.4)
 		end
 
-		if GetDistanceBetweenCoords(coords, Config.Zones.KitchenMenu2.x, Config.Zones.KitchenMenu2.y, Config.Zones.KitchenMenu2.z, true) < 1 and hasProperty then
+		if GetDistanceBetweenCoords(coords, Config.Zones.KitchenMenu2.x, Config.Zones.KitchenMenu2.y, Config.Zones.KitchenMenu2.z, true) < 1 and hasProperty2 then
 			if IsControlJustReleased(0, Keys['E']) then
 				OpenMenu2(true)
 			end
@@ -172,7 +200,7 @@ RegisterNUICallback("buybreadb", function()
 	ESX.TriggerServerCallback("checkMoney", function(cb)
 		if cb then
 			ESX.ShowNotification("~g~You have ordered ~y~1x ~g~burger bread~s~." .. " ~y~Please wait for your order~s~.")
-			Wait(60000)
+			Wait(10000)
 			ESX.ShowNotification("~g~Your order was been delivered on your door.~s~")
             table.insert(orders, "breadb")
 		else
@@ -185,7 +213,7 @@ RegisterNUICallback("buycheese", function()
 	ESX.TriggerServerCallback("checkMoney1", function(cb)
 		if cb then
 			ESX.ShowNotification("~g~You have ordered ~y~1x ~g~cheese~s~." .. " ~y~Please wait for your order~s~.")
-			Wait(60000)
+			Wait(10000)
 			ESX.ShowNotification("~g~Your order was been delivered on your door.~s~")
             table.insert(orders, "cheese")
 		else
@@ -198,7 +226,7 @@ RegisterNUICallback("buymeat", function()
 	ESX.TriggerServerCallback("checkMoney2", function(cb)
 		if cb then
 			ESX.ShowNotification("~g~You have ordered ~y~1x ~g~meat~s~" .. " ~y~Please wait for your order~s~.")
-			Wait(60000)
+			Wait(10000)
 			ESX.ShowNotification("~g~Your order was been delivered on your door.~s~")
             table.insert(orders, "meat")
 		else

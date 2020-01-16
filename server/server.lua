@@ -134,3 +134,33 @@ ESX.RegisterServerCallback("checkProperty", function(source, cb)
         cb(found)
     end)
 end)
+
+ESX.RegisterServerCallback("checkProperty1", function(source, cb)
+    local identifier = GetPlayerIdentifiers(source)[1]
+    local found = false
+    MySQL.Async.fetchAll('SELECT * FROM owned_properties WHERE owner = @owner', {
+        ['@owner'] = identifier
+    }, function(result)
+        for k,v in pairs(result) do
+            if v.name == 'WhispymoundDrive' then
+                found = true
+            end
+        end
+        cb(found)
+    end)
+end)
+
+ESX.RegisterServerCallback("checkProperty2", function(source, cb)
+    local identifier = GetPlayerIdentifiers(source)[1]
+    local found = false
+    MySQL.Async.fetchAll('SELECT * FROM owned_properties WHERE owner = @owner', {
+        ['@owner'] = identifier
+    }, function(result)
+        for k,v in pairs(result) do
+            if v.name == 'RichardMajesticApt2' then
+                found = true
+            end
+        end
+        cb(found)
+    end)
+end)

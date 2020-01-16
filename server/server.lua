@@ -120,6 +120,7 @@ AddEventHandler("esx_cooking:giveitem3", function()
     xPlayer.addInventoryItem("Hot Dog", 1)
 end)
 
+--WildOatsDrive
 ESX.RegisterServerCallback("checkProperty", function(source, cb)
     local identifier = GetPlayerIdentifiers(source)[1]
     local found = false
@@ -135,6 +136,7 @@ ESX.RegisterServerCallback("checkProperty", function(source, cb)
     end)
 end)
 
+--WhispymoundDrive
 ESX.RegisterServerCallback("checkProperty1", function(source, cb)
     local identifier = GetPlayerIdentifiers(source)[1]
     local found = false
@@ -150,6 +152,8 @@ ESX.RegisterServerCallback("checkProperty1", function(source, cb)
     end)
 end)
 
+
+--RichardMajesticApt2
 ESX.RegisterServerCallback("checkProperty2", function(source, cb)
     local identifier = GetPlayerIdentifiers(source)[1]
     local found = false

@@ -132,7 +132,7 @@ end)
 RegisterCommand("accept", function()
 	local coords = GetEntityCoords(GetPlayerPed(-1))
 
-	--Property 1
+	--WildOatsDrive
 	if GetDistanceBetweenCoords(coords, Config.Zones.RecieveFood.x, Config.Zones.RecieveFood.y, Config.Zones.RecieveFood.z, true) < 2 then
 		for k, v in pairs(orders) do
 			TriggerServerEvent("esx_cooking:giveItem", v)
@@ -141,7 +141,7 @@ RegisterCommand("accept", function()
 		orders = {}
 	end
 
-	--Property 2
+	--WhispymoundDrive
 	if GetDistanceBetweenCoords(coords, Config.Zones.RecieveFood1.x, Config.Zones.RecieveFood1.y, Config.Zones.RecieveFood1.z, true) < 2 then
 		for k, v in pairs(orders) do
 			TriggerServerEvent("esx_cooking:giveItem", v)
@@ -150,7 +150,7 @@ RegisterCommand("accept", function()
 		orders = {}
 	end
 
-	--Property 4
+	--RichardMajesticApt2
 	if GetDistanceBetweenCoords(coords, Config.Zones.RecieveFood2.x, Config.Zones.RecieveFood2.y, Config.Zones.RecieveFood2.z, true) < 2 then
 		for k, v in pairs(orders) do
 			TriggerServerEvent("esx_cooking:giveItem", v)
